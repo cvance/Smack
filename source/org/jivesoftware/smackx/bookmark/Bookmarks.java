@@ -104,6 +104,9 @@ public class Bookmarks implements PrivateData {
      * @param bookmarkedConference the conference to remove.
      */
     public void addBookmarkedConference(BookmarkedConference bookmarkedConference) {
+        if (bookmarkedConferences.contains(bookmarkedConference)) {
+            bookmarkedConferences.remove(bookmarkedConference);
+        }
         bookmarkedConferences.add(bookmarkedConference);
     }
 
