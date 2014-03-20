@@ -20,6 +20,7 @@ package org.jivesoftware.smackx.bookmark;
 
 import org.jivesoftware.smackx.packet.PrivateData;
 import org.jivesoftware.smackx.provider.PrivateDataProvider;
+import org.jivesoftware.smack.util.StringUtils;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -194,7 +195,7 @@ public class Bookmarks implements PrivateData {
                 continue;
             }
             buf.append("<conference ");
-            buf.append("name=\"").append(conference.getName()).append("\" ");
+            buf.append("name=\"").append(StringUtils.escapeForXML(conference.getName())).append("\" ");
             buf.append("autojoin=\"").append(conference.isAutoJoin()).append("\" ");
             buf.append("jid=\"").append(conference.getJid()).append("\" ");
             buf.append(">");
