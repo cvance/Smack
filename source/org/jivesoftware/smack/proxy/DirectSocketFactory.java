@@ -64,6 +64,14 @@ class DirectSocketFactory
         return newSocket;
     }
 
+    public Socket createSocket(InetAddress host, int port)
+            throws IOException
+    {
+        Socket newSocket = new Socket(Proxy.NO_PROXY);
+        newSocket.connect(new InetSocketAddress(host,port));
+        return newSocket;
+    }
+
     public Socket createSocket( InetAddress address, int port, 
                                 InetAddress localAddress, int localPort) 
         throws IOException
