@@ -24,6 +24,7 @@ import java.net.Proxy;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import javax.net.SocketFactory;
+import org.jivesoftware.smack.SmackConfiguration;
 
 /**
  * SocketFactory for direct connection
