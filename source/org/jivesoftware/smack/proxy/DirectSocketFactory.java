@@ -40,12 +40,12 @@ class DirectSocketFactory
 
     static private int roundrobin = 0;
 
-    public Socket createSocket(String host, int port) 
+    public Socket createSocket(String host, int port, int timeout)
         throws IOException, UnknownHostException
     {
         Socket newSocket = new Socket(Proxy.NO_PROXY);
         InetAddress resolved[] = InetAddress.getAllByName(host);
-        newSocket.connect(new InetSocketAddress(resolved[(roundrobin++) % resolved.length],port));
+        newSocket.connect(new InetSocketAddress(resolved[(roundrobin++) % resolved.length],port), timeout);
         return newSocket;
     }
 
@@ -56,11 +56,11 @@ class DirectSocketFactory
         return new Socket(host,port,localHost,localPort);
     }
 
-    public Socket createSocket(InetAddress host, int port)
+    public Socket createSocket(InetAddress host, int port, int timeout)
         throws IOException
     {
         Socket newSocket = new Socket(Proxy.NO_PROXY);
-        newSocket.connect(new InetSocketAddress(host,port));
+        newSocket.connect(new InetSocketAddress(host,port), timeout);
         return newSocket;
     }
 

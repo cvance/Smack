@@ -563,7 +563,7 @@ public class XMPPConnection extends Connection {
                     this.socket = new Socket(host, port);
                 }
                 else {
-                    this.socket = config.getSocketFactory().createSocket(host, port);
+                    this.socket = config.getSocketFactory().createSocket(host, port, SmackConfiguration.getPacketReplyTimeout());
                 }
             } catch (UnknownHostException uhe) {
                 String errorMessage = "Could not connect to " + host + ":" + port + ".";
